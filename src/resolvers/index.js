@@ -1,22 +1,9 @@
+const Query = require("./queries");
+const Mutation = require("./mutations");
+const fields = require("./fields");
+
 module.exports = {
-    Query: {
-        allUsers() {
-
-        },
-        user() {
-            return {
-                name: 'amir'
-            }
-        }
-    },
-
-    Mutation: {
-        createUser(root, args, ctx, info){
-            return 1;
-        },
-
-        createHero(root, args, ctx, info) {
-            return 2
-        }
-    }
+    Query,
+    Mutation,
+    ...fields
 }

@@ -14,7 +14,7 @@ module.exports = gql`
         name: String!
         email: String!
         password: String!
-        heroes: [Hero]!
+        heroes: [Hero]
     }
 
     type Hero{
@@ -39,9 +39,14 @@ module.exports = gql`
         role: ROLE!
     }
 
+    input addHeroInput {
+        name: String!
+    }
+
     type Mutation {
         createUser(input: CreateUserInput): User!
         createHero(input: CreateHeroInput): Hero!
+        addHero(input: addHeroInput): User!
     }
 `;
 
