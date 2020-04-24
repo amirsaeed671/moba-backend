@@ -17,17 +17,17 @@ const hero = gql`
         role: ROLE!
     }
 
+    extend type Query {
+        allHeroes : [Hero]
+    }
+
     input CreateHeroInput {
         name: String!
         role: ROLE!
     }
 
-    input addHeroInput {
-        name: String!
-    }
-
     extend type Mutation {
-        addHero(input: addHeroInput): User!
+        createHero(input: CreateHeroInput!): Hero
     }
 `;
 

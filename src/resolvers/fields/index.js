@@ -1,7 +1,9 @@
 module.exports = {
     User: {
-        heroes(parent) {
-            return parent.Heroes;
+        heroes: async (parent, _, {User}, ___) => {
+            const user = await User.findById(parent._id);
+            await user.populate('heroes').execPopulate();
+            return user.heroes; 
         }
     }
 }
