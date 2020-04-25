@@ -9,9 +9,13 @@ const user = gql`
         heroes: [Hero]
     }
 
+    input GetUserInput {
+        name: String!
+    }
+
     extend type Query {
         allUsers: [User]
-        user: User
+        user(input: GetUserInput!): User
     }
 
     input CreateUserInput {
@@ -20,9 +24,14 @@ const user = gql`
         password: String!
     }
 
+    input AddHeroInput {
+        email: String!
+        hero: String!
+    }
+
     extend type Mutation {
-        createUser(input: CreateUserInput): User!
-        createHero(input: CreateHeroInput): Hero!
+        createUser(input: CreateUserInput!): User!
+        addHero(input: AddHeroInput!): User!
     }
 `;
 

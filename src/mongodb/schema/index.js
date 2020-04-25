@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const HeroSchema = new Schema({
-    id: mongoose.Schema.Types.ObjectId,
+    id: mongoose.Types.ObjectId,
     name: {
         type: String,
+        unique: true,
         required: true
     },
     role: {
@@ -30,7 +31,7 @@ const UserSchema = new Schema({
         type: Schema.Types.Mixed,
         required: true
     },
-    Heroes: [HeroSchema] 
+    heroes: [{type: Schema.Types.ObjectId, ref: 'hero'}]
 }, {versionKey: false});
 
 module.exports = {

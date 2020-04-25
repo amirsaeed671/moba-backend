@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user mutation tests it should create a user in db 1`] = `
+Object {
+  "data": Object {
+    "createUser": Object {
+      "email": "test@test.com",
+      "name": "test",
+      "password": "123456",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
