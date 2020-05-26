@@ -1,6 +1,7 @@
 module.exports = {
-    allUsers(_, __, {User}) {
-        return User.find().exec();
+    allUsers: async (_, __, {User}) => {
+        const user = await User.find().lean().exec();
+        return user.map(x => ({...x, id: x._id}));
     },
 
     user(_, {input}, {User}) {
