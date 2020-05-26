@@ -18,7 +18,9 @@ const server = new ApolloServer({
 	resolvers,
 	context(_){
 		return models;
-	}
+	},
+	playground: true,
+	introspection: true
 })
 
 server.applyMiddleware({app, path: '/graphql'});
